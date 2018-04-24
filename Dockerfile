@@ -60,15 +60,6 @@ RUN set -ex \
 	) \
 	&& ( \
 		apk add \
-			--no-cache \
-			libmcrypt-dev \
-			libmcrypt \
-		&& docker-php-ext-configure mcrypt \
-			--with-mcrypt \
-		&& docker-php-ext-install mcrypt \
-	) \
-	&& ( \
-		apk add \
 			curl \
 		&& curl -sSL https://phar.phpunit.de/phpunit.phar -o phpunit.phar \
 		&& chmod +x phpunit.phar \
