@@ -1,0 +1,11 @@
+#!/bin/ash
+
+[ "$DEBUG" = "true" ] && set -x
+
+SSMTP_FILE="/etc/ssmtp/ssmtp.conf"
+
+if [ -f $SSMTP_FILE ]; then
+	[ ! -z "${SSMTP_HOST}" ] && sed -i -e "s/^\s*mailhub\s*=\s*.*$/mailhub=${SSMTP_HOST}/" $SSMTP_FILE
+fi;
+
+exec "$@"
